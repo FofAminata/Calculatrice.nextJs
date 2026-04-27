@@ -1,0 +1,18 @@
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Calcul {
+  id        Int      @id @default(autoincrement())
+  n1        Float    // Premier nombre
+  n2        Float    // Deuxième nombre
+  op        String   // Opérateur (+, -, *, /)
+  res       Float    // Résultat final
+  createdAt DateTime @default(now())
+}
